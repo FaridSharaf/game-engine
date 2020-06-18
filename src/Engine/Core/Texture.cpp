@@ -54,8 +54,8 @@ bool Texture::Load(const std::string& fileName){
 
 	stbi_image_free(image);
 
-	glTexParameteri(TEXTURE_TYPE_2D, TEXTURE_WRAPMODE_CLAMP, TEXTURE_FILTERMODE_POINT);
-	glTexParameteri(TEXTURE_TYPE_2D, TEXTURE_WRAPMODE_CLAMP, TEXTURE_FILTERMODE_POINT);
+	glTexParameteri(TEXTURE_TYPE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(TEXTURE_TYPE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	return true;
 }
@@ -65,5 +65,5 @@ void Texture::Unload() {
 }
 
 void Texture::Bind(){
-	glBindTexture(GL_TEXTURE_2D, mTextureID);
+	glBindTexture(TEXTURE_TYPE_2D, mTextureID);
 }
